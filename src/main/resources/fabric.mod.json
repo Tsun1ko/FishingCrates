@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/user/Tsun1ko",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Tsun1ko/FishingCrates"
 	},
 	"license": "MIT",
 	"icon": "assets/fishing-crates/icon.png",
