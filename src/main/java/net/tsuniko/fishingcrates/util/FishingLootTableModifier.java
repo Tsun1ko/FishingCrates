@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FishingLootTableModifier {
-    private static final int UNCOMMON = 5;
+    private static final int UNCOMMON = 4;
     private static final int RARE = 1;
 
     private static final Identifier FISHING_FISH_ID =
