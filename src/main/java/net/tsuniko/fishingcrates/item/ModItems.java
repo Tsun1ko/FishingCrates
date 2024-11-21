@@ -8,6 +8,7 @@ import net.tsuniko.fishingcrates.FishingCrates;
 
 public class ModItems {
 
+
     private  static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(FishingCrates.MOD_ID, name), item);
     }

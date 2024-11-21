@@ -1,7 +1,9 @@
 {
   "block.fishingcrates.wooden_crate": "Wooden Crate",
-  "block.fishingcrates.iron_crate": "Iron Crate",
-  "block.fishingcrates.golden_crate": "Golden Crate",
+  "block.fishingcrates.iron_crate": "§eIron Crate",
+  "block.fishingcrates.golden_crate": "§bGolden Crate",
 
-  "itemgroup.fishing_crates": "Fishing Crates"
+  "itemgroup.fishing_crates": "Fishing Crates",
+
+  "tooltip.fishingcrates.crate_info": "Place this Block and break it to obtain what's inside of it!"
 }

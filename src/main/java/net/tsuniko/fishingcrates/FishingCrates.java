@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.tsuniko.fishingcrates.block.ModBlocks;
 import net.tsuniko.fishingcrates.item.ModItemGroups;
 import net.tsuniko.fishingcrates.item.ModItems;
+import net.tsuniko.fishingcrates.util.ModLootTableModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,5 +19,6 @@ public class FishingCrates implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 
+		ModLootTableModifiers.modifyLootTables();
 	}
 }
