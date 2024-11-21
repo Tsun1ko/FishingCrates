@@ -1,5 +1,7 @@
 {
   "block.fishingcrates.wooden_crate": "Wooden Crate",
+  "block.fishingcrates.iron_crate": "Iron Crate",
+  "block.fishingcrates.golden_crate": "Golden Crate",
 
   "itemgroup.fishing_crates": "Fishing Crates"
 }

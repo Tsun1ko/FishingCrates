@@ -17,6 +17,8 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.fishing_crates"))
                     .icon(() -> new ItemStack(Items.COD)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.WOODEN_CRATE);
+                        entries.add(ModBlocks.IRON_CRATE);
+                        entries.add(ModBlocks.GOLDEN_CRATE);
                     }).build());
 
     public static void registerItemGroups() {

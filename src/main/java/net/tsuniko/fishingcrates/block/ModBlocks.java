@@ -14,6 +14,10 @@ import net.tsuniko.fishingcrates.FishingCrates;
 public class ModBlocks {
     public static final Block WOODEN_CRATE = registerBlock("wooden_crate",
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)));
+    public static final Block IRON_CRATE = registerBlock("iron_crate",
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block GOLDEN_CRATE = registerBlock("golden_crate",
+            new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
