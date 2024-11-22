@@ -181,7 +181,9 @@
           "functions": [
             {
               "function": "minecraft:set_enchantments",
-              "enchantments": {}
+              "enchantments": {
+                "minecraft:mending": 1
+              }
             }
           ],
           "conditions": [

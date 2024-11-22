@@ -12,8 +12,6 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.tsuniko.fishingcrates.FishingCrates;
 
-import java.util.Objects;
-
 public class ModBlocks {
     public static final Block WOODEN_CRATE = registerBlock("wooden_crate",
             new Crate(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)));
