@@ -1,0 +1,9 @@
+{
+  "block.fishing_crates.wooden_crate": "Wooden Crate",
+  "block.fishing_crates.iron_crate": "§eIron Crate",
+  "block.fishing_crates.golden_crate": "§bGolden Crate",
+
+  "itemgroup.fishing_crates": "Fishing Crates",
+
+  "tooltip.fishing_crates.crate_info": "Sounds like there's something inside..."
+}
