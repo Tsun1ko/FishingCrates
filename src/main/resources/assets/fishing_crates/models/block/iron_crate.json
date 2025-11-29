@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "fishing_crates:block/iron_crate"
+  }
+}

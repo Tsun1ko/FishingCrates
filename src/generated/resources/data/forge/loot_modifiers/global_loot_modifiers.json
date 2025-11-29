@@ -1,0 +1,8 @@
+{
+  "entries": [
+    "fishing_crates:golden_crate_from_treasure_fishing",
+    "fishing_crates:iron_crate_from_fishing",
+    "fishing_crates:wooden_crate_from_fishing"
+  ],
+  "replace": false
+}

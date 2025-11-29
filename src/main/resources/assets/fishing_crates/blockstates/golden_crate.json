@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "fishing_crates:block/golden_crate"
+    }
+  }
+}

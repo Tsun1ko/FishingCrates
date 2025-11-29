@@ -1,0 +1,5 @@
+// 1.20.1	2025-10-28T14:27:09.544196773	Global Loot Modifiers : fishing_crates
+d15c43513ae510b69279601f13ee24d548f18dc7 data/fishing_crates/loot_modifiers/golden_crate_from_treasure_fishing.json
+40b5346f5240ad2d9ef8aa776932540f551c0126 data/fishing_crates/loot_modifiers/iron_crate_from_fishing.json
+dac3df52d3f29011dac1a63477a9c24dad2a062a data/fishing_crates/loot_modifiers/wooden_crate_from_fishing.json
+a869fa72d80bf37ab4cea872c9e4df8c6dd5a812 data/forge/loot_modifiers/global_loot_modifiers.json

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "fishing_crates:iron_crate",
+    "fishing_crates:golden_crate"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "fishing_crates:add_item",
+  "conditions": [
+    {
+      "chance": 0.35,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/fishing"
+    }
+  ],
+  "item": "fishing_crates:wooden_crate"
+}
