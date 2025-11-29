@@ -18,16 +18,12 @@
 		"main": [
 			"net.tsuniko.FishingCrates"
 		],
-		"client": [
-			"net.tsuniko.FishingCratesClient"
+		"fabric-datagen": [
+			"net.tsuniko.FishingCratesDataGenerator"
 		]
 	},
 	"mixins": [
-		"fishing_crates.mixins.json",
-		{
-			"config": "fishing_crates.client.mixins.json",
-			"environment": "client"
-		}
+		"fishing_crates.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18.1",
