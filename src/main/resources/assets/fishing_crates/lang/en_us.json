@@ -1,0 +1,13 @@
+{
+  "itemGroup.fishing_crates": "Example Mod Tab",
+  "block.fishing_crates.example_block": "Example Block",
+  "item.fishing_crates.example_item": "Example Item",
+
+  "fishing_crates.configuration.title": "Fishing Crates Configs",
+  "fishing_crates.configuration.section.fishing_crates.common.toml": "Fishing Crates Configs",
+  "fishing_crates.configuration.section.fishing_crates.common.toml.title": "Fishing Crates Configs",
+  "fishing_crates.configuration.items": "Item List",
+  "fishing_crates.configuration.logDirtBlock": "Log Dirt Block",
+  "fishing_crates.configuration.magicNumberIntroduction": "Magic Number Text",
+  "fishing_crates.configuration.magicNumber": "Magic Number"
+}
