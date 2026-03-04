@@ -1,51 +1,68 @@
 package net.tsuniko.block;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.tsuniko.FishingCrates;
 
+import java.util.function.Function;
+
 public class ModBlocks {
     public static final Block WOODEN_CRATE = register(
-            new CrateBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)),
             "wooden_crate",
+            Block::new,
+            AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD),
             true);
 
     public static final Block IRON_CRATE = register(
-            new CrateBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.NETHERITE)),
             "iron_crate",
+            Block::new,
+            AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.NETHERITE),
             true);
 
     public static final Block GOLDEN_CRATE = register(
-            new CrateBlock(AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.NETHERITE)),
             "golden_crate",
+            Block::new,
+            AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.NETHERITE),
             true);
 
-    public static Block register(Block block, String name, boolean shouldRegisterItem) {
-        Identifier id = Identifier.of(FishingCrates.MOD_ID, name);
+    public static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
+        RegistryKey<Block> blockKey = keyOfBlock(name);
+        Block block = blockFactory.apply(settings.registryKey(blockKey));
 
         if (shouldRegisterItem) {
-            BlockItem blockItem = new BlockItem(block, new Item.Settings());
-            Registry.register(Registries.ITEM, id, blockItem);
+            RegistryKey<Item> itemKey = keyOfItem(name);
+
+            BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey).useBlockPrefixedTranslationKey());
+            Registry.register(Registries.ITEM, itemKey, blockItem);
         }
 
-        return Registry.register(Registries.BLOCK, id, block);
+        return Registry.register(Registries.BLOCK, blockKey, block);
+    }
+
+    private static RegistryKey<Block> keyOfBlock(String name) {
+        return RegistryKey.of(Registries.BLOCK.getKey(), Identifier.of(FishingCrates.MOD_ID, name));
+    }
+
+    private static RegistryKey<Item> keyOfItem(String name) {
+        return RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(FishingCrates.MOD_ID, name));
     }
 
     public static void init() {
         FishingCrates.LOGGER.info("Registering Mod Blocks");
 
+        ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
+            list.add(Text.translatable("tooltip.fishing_crates.crate_info").formatted(Formatting.GRAY));
+        });
     }
 }
