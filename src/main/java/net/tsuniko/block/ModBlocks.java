@@ -1,6 +1,5 @@
 package net.tsuniko.block;
 
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -10,8 +9,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.tsuniko.FishingCrates;
 
@@ -60,9 +57,5 @@ public class ModBlocks {
 
     public static void init() {
         FishingCrates.LOGGER.info("Registering Mod Blocks");
-
-        ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
-            list.add(Text.translatable("tooltip.fishing_crates.crate_info").formatted(Formatting.GRAY));
-        });
     }
 }

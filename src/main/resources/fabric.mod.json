@@ -18,6 +18,9 @@
 		"main": [
 			"net.tsuniko.FishingCrates"
 		],
+		"client": [
+			"net.tsuniko.FishingCratesClient"
+		],
 		"fabric-datagen": [
 			"net.tsuniko.FishingCratesDataGenerator"
 		]
