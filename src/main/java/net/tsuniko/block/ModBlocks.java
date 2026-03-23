@@ -1,15 +1,15 @@
 package net.tsuniko.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.resources.Identifier;
 import net.tsuniko.FishingCrates;
 
 import java.util.function.Function;
@@ -18,41 +18,41 @@ public class ModBlocks {
     public static final Block WOODEN_CRATE = register(
             "wooden_crate",
             Block::new,
-            AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.WOOD),
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD),
             true);
 
     public static final Block IRON_CRATE = register(
             "iron_crate",
             Block::new,
-            AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.NETHERITE),
+            BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.NETHERITE_BLOCK),
             true);
 
     public static final Block GOLDEN_CRATE = register(
             "golden_crate",
             Block::new,
-            AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.NETHERITE),
+            BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK).sound(SoundType.NETHERITE_BLOCK),
             true);
 
-    public static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
-        RegistryKey<Block> blockKey = keyOfBlock(name);
-        Block block = blockFactory.apply(settings.registryKey(blockKey));
+    public static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
+        ResourceKey<Block> blockKey = keyOfBlock(name);
+        Block block = blockFactory.apply(settings.setId(blockKey));
 
         if (shouldRegisterItem) {
-            RegistryKey<Item> itemKey = keyOfItem(name);
+            ResourceKey<Item> itemKey = keyOfItem(name);
 
-            BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey).useBlockPrefixedTranslationKey());
-            Registry.register(Registries.ITEM, itemKey, blockItem);
+            BlockItem blockItem = new BlockItem(block, new net.minecraft.world.item.Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
+            Registry.register(BuiltInRegistries.ITEM, itemKey, blockItem);
         }
 
-        return Registry.register(Registries.BLOCK, blockKey, block);
+        return Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
     }
 
-    private static RegistryKey<Block> keyOfBlock(String name) {
-        return RegistryKey.of(Registries.BLOCK.getKey(), Identifier.of(FishingCrates.MOD_ID, name));
+    private static ResourceKey<Block> keyOfBlock(String name) {
+        return ResourceKey.create(BuiltInRegistries.BLOCK.key(), Identifier.fromNamespaceAndPath(FishingCrates.MOD_ID, name));
     }
 
-    private static RegistryKey<Item> keyOfItem(String name) {
-        return RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(FishingCrates.MOD_ID, name));
+    private static ResourceKey<Item> keyOfItem(String name) {
+        return ResourceKey.create(BuiltInRegistries.ITEM.key(), Identifier.fromNamespaceAndPath(FishingCrates.MOD_ID, name));
     }
 
     public static void init() {
