@@ -1,7 +1,7 @@
 package net.tsuniko.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,7 +14,7 @@ import net.tsuniko.block.ModBlocks;
 
 public class ModItemGroup {
     public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(FishingCrates.MOD_ID, "item_group"));
-    public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
+    public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricCreativeModeTab.builder()
             .icon(() -> new ItemStack(ModBlocks.GOLDEN_CRATE.asItem()))
             .title(Component.translatable("itemgroup.fishing_crates"))
             .build();
@@ -24,7 +24,7 @@ public class ModItemGroup {
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
 
-        ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
+        CreativeModeTabEvents.modifyOutputEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
             itemGroup.accept(ModBlocks.WOODEN_CRATE);
             itemGroup.accept(ModBlocks.IRON_CRATE);
             itemGroup.accept(ModBlocks.GOLDEN_CRATE);
