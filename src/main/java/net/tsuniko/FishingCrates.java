@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.tsuniko.block.ModBlocks;
 import net.tsuniko.item.ModItemGroup;
+import net.tsuniko.config.ModConfig;
 import net.tsuniko.util.ModLootTableModifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,10 @@ public class FishingCrates implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModConfig.HANDLER.load();
+        LOGGER.info("Wooden Crate Weight set to: {}", ModConfig.woodenCrateWeight);
+        LOGGER.info("Iron Crate Weight set to: {}", ModConfig.ironCrateWeight);
+
         ModBlocks.init();
         ModItemGroup.init();
 
