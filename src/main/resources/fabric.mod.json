@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/user/tsuniko",
-		"sources": "https://github.com/Tsun1ko/FishingCrates"
+		"sources": "https://codeberg.org/tsuniko/FishingCrates"
 	},
 	"license": "ARR",
 	"icon": "assets/fishing_crates/icon.png",
